@@ -48,5 +48,6 @@
 	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/xml-apis.jar"/>
 	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/protege.jar"/>
 	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/test/commons-collections4-4.0-alpha1-bin/commons-collections4-4.0-alpha1/commons-collections4-4.0-alpha1.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/guava-18.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
