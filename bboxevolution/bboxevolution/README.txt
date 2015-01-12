@@ -1,5 +1,7 @@
 How to run b-box evolution :
 
-java -jar bboxevolution filepath(inputOWL) folderpath(triples) filepath(outputOWL)
+java -jar bboxevolutionfull filepath(inputOWL) folderpath(triples) filepath(outputOWL)
 
-Example) java -jar bboxevolution c:/bbox/inputKB.owl c:/bbox/sampleTriples/ c:/bbox/outputKB.owl
+Windows cmd example) java -jar bboxevolutionfull.jar c:/bbox/inputKB.owl c:/bbox/sampleTriples/ c:/bbox/outputKB.owl
+
+Linux example) java -jar bboxevolutionfull.jar /home/sundong/bboxevolution/inputKB.owl /home/sundong/bboxevolution/sampleTriples/ ./bboxevolution/outputKB.owl

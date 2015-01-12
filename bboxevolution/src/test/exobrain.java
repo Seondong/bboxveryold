@@ -24,6 +24,7 @@ import java.net.URLEncoder;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
+import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.util.FileUtils;
 
 import edu.stanford.smi.protege.exception.OntologyLoadException;
@@ -58,8 +59,8 @@ public class exobrain {
 		JenaOWLModel owlModel = loadExistSchema(inputowlfilePath);
 		addTriple(owlModel, instanceCSVfilePath, 0);
 		executeLogic(owlModel);
-		saveEvolvedSchema(owlModel, outputowlfilePath);
-
+		//saveEvolvedSchema(owlModel, outputowlfilePath);
+		saveEvolvedSchema2(owlModel, outputowlfilePath);
 		// addTriple(owlModel, 0, koreanClass, englishClass);
 		// addInstance(owlModel, 23, koreanClass, englishClass);
 
@@ -105,6 +106,17 @@ public class exobrain {
 
 		}
 		System.out.println("File saved with " + errors.size() + " errors.");
+	}
+	
+	private static void saveEvolvedSchema2(JenaOWLModel model, String filePath) {
+		OntModel ontmodel = model.getOntModel();
+		FileWriter out = null;
+		try {
+			out = new FileWriter("evolvedKB22.owl");
+			ontmodel.write(out, "RDF/XML-ABBREV");
+		}catch(Exception e){
+			
+		}
 	}
 
 	private static JenaOWLModel executeLogic(JenaOWLModel model) {
@@ -442,12 +454,12 @@ public class exobrain {
 											// }
 										}
 									} catch (Exception e) {
-										e.printStackTrace();
+//										e.printStackTrace();
 									}
 
 								}
 							} catch (Exception e) {
-								e.printStackTrace();
+//								e.printStackTrace();
 							}
 						}
 
@@ -461,7 +473,7 @@ public class exobrain {
 
 						for (Entry<String, Integer> e : h.entrySet()) {
 
-							System.out.println(ind.getBrowserText() + "," + e.getValue() + "," + e.getKey());
+//							System.out.println(ind.getBrowserText() + "," + e.getValue() + "," + e.getKey());
 							if (e.getValue() > hival
 									&& !e.getKey()
 											.equals("DefaultOWLNamedClass(http://www.w3.org/2002/07/owl#Thing)")) {
