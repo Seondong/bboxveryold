@@ -37,6 +37,12 @@ import edu.stanford.smi.protegex.owl.model.OWLDatatypeProperty;
 import edu.stanford.smi.protegex.owl.model.OWLIndividual;
 import edu.stanford.smi.protegex.owl.model.OWLNamedClass;
 
+/* B-Box Evolution Algorithms
+ * by Sundong Kim (sundong.kim@kaist.ac.kr)
+ * Input : Knowledge base, Triples
+ * Output : Evolved Knowledge base
+ */
+
 public class bboxevolution {
 	// static String owlfilePath = "output_kor_output";
 	// static String instanceCSVfilePath = "triple";
