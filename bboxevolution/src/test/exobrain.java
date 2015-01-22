@@ -61,8 +61,8 @@ public class exobrain {
 		JenaOWLModel owlModel = loadExistSchema(inputowlfilePath);
 		addTriple(owlModel, instanceCSVfilePath, 0);
 		executeLogic(owlModel);
-		// saveEvolvedSchema(owlModel, outputowlfilePath);
-		saveEvolvedSchema2(owlModel, outputowlfilePath);
+		saveEvolvedSchema(owlModel, outputowlfilePath);
+		//saveEvolvedSchema2(owlModel, outputowlfilePath);
 		// addTriple(owlModel, 0, koreanClass, englishClass);
 		// addInstance(owlModel, 23, koreanClass, englishClass);
 
@@ -189,7 +189,7 @@ public class exobrain {
 				// System.out.println(clsName);
 				try {
 					OWLNamedClass cls = model.getOWLNamedClass(clsName);
-					System.out.println(cls.getBrowserText() + "   , " + i);
+//					System.out.println(cls.getBrowserText() + "   , " + i);
 					// Get information of each subclass, and pull up relative
 					// property
 
@@ -200,7 +200,8 @@ public class exobrain {
 				}
 			}
 		}
-
+		
+		System.out.println("----------Finding Instance Type-----------");
 		for (int i = j; i >= 2; i--) { // Extract relevant class for instances.
 			// for(int i = 1; i<=j; i++){
 			Iterator it = getKeysByValue(nodeDepthsNew, i).iterator();
@@ -208,7 +209,7 @@ public class exobrain {
 				String clsName = it.next().toString();
 				try {
 					OWLNamedClass cls = model.getOWLNamedClass(clsName);
-					// System.out.println(cls.getBrowserText() + "   , " + i);
+				    System.out.println(cls.getBrowserText() + "   , " + i);
 
 					List<Double> n = secondaryClassTFIDF(cls, model);
 					if (!cls.getBrowserText().equals("Thing")) {
@@ -242,6 +243,7 @@ public class exobrain {
 	private static JenaOWLModel addTriple(JenaOWLModel model,
 			String CSVfilePath, int i) throws FileNotFoundException,
 			IOException {
+		System.out.println("----------Adding Triples-----------");
 		String path = CSVfilePath;
 		File files = new File(path);
 		File[] filelist = files.listFiles();
@@ -264,10 +266,15 @@ public class exobrain {
 					for (int b = 1; b <= st.countTokens(); b++) {
 						String s = st.nextToken();
 						s = s.replaceAll(" ", "_");
+						s = s.replaceAll("http://ko.dbpedia.org/resource/", "");
+						s = s.replaceAll(":", "_");
 						String p = st.nextToken();
 						p = p.replaceAll(" ", "_");
+						p = p.replaceAll("http://ko.dbpedia.org/property/", "");
+						p = p.replaceAll("http://dbpedia.org/ontology/", "");
 						String o = st.nextToken();
 						o = o.replaceAll(" ", "_");
+						o = o.replaceAll("http://ko.dbpedia.org/resource/", "");      //Do not think of individual here as a object
 						if (!relatedIndividualNameList.contains(s)) {
 							relatedIndividualNameList.add(s);
 						}
@@ -280,7 +287,7 @@ public class exobrain {
 						}
 
 						String type = "Thing";
-						// System.out.println(s + ", " + p + ", " + o);
+//						System.out.println(s + ", " + p + ", " + o);
 						OWLNamedClass cls = model.getOWLNamedClass(type);
 
 						if (cls == null) {
@@ -292,8 +299,9 @@ public class exobrain {
 						OWLDatatypeProperty property;
 						try {
 							individual = model.getOWLIndividual(s);
-						} catch (ClassCastException e) {
-							System.out.println(e.getMessage());
+						} catch (Exception e) {
+							//System.out.println(e.getMessage());
+							e.printStackTrace();
 							individual = model.getOWLIndividual(s
 									+ "_individual");
 						}
@@ -303,8 +311,9 @@ public class exobrain {
 						if (individual == null) {
 							try {
 								individual = cls.createOWLIndividual(s);
-							} catch (IllegalArgumentException e) {
-								System.out.println(e.getMessage());
+							} catch (Exception e) {
+								e.printStackTrace();
+//								System.out.println(e.getMessage());
 								individual = cls.createOWLIndividual(s
 										+ "_individual");
 							}
@@ -313,12 +322,15 @@ public class exobrain {
 							if (property == null) {
 								property = model.createOWLDatatypeProperty(p);
 							}
-							individual.addPropertyValue(property, o);
-
+							if(!individual.hasPropertyValue(property, o)){
+								individual.addPropertyValue(property, o);
+							}
 						} catch (IllegalArgumentException e) {
 							System.out.println(e.getMessage());
 						}
 
+//						System.out.println(individual.getBrowserText() + ", " + property.getBrowserText() + ", " + o);
+						
 						relatedIndividualList.add(individual);
 						relatedPropertyList.add(property);
 						if (!relatedIndividualMap.containsValue(individual)) {
@@ -326,7 +338,7 @@ public class exobrain {
 						}
 					}
 				} catch (Exception e) {
-
+					e.printStackTrace();
 				}
 			}
 		}
@@ -380,7 +392,7 @@ public class exobrain {
 
 	public static List<Double> secondaryClass(OWLNamedClass cls,
 			JenaOWLModel owlModel) {
-
+		
 		List<Double> evals = new ArrayList<Double>();
 		Double count1 = 0.0;
 		Double count2 = 0.0;
@@ -390,7 +402,7 @@ public class exobrain {
 		// Collection a = cls.getDirectInstances();
 
 		Collection<OWLIndividual> a = relatedIndividualMap.get(cls);
-
+		
 		if (a.size() > 0) {
 			Iterator it2 = a.iterator();
 
@@ -492,10 +504,10 @@ public class exobrain {
 							}
 						}
 						//
-						System.out.println("Current class : "
-								+ cls.getBrowserText() + ", Instance name : "
-								+ ind.getBrowserText() + ", Domain Name : "
-								+ key + ", Frequency : " + hival);
+//						System.out.println("Current class : "
+//								+ cls.getBrowserText() + ", Instance name : "
+//								+ ind.getBrowserText() + ", Domain Name : "
+//								+ key + ", Frequency : " + hival);
 
 						if (key.equals(cls.getBrowserText())) {
 							count3 = count3 + 1.0;
@@ -599,7 +611,10 @@ public class exobrain {
 		// Collection a = cls.getDirectInstances();
 
 		Collection<OWLIndividual> a = relatedIndividualMap.get(cls);
-
+//		for(OWLIndividual b : a){
+//			System.out.println(b);
+//		}
+		
 		if (a.size() > 0) {
 			Iterator it2 = a.iterator();
 
@@ -610,13 +625,16 @@ public class exobrain {
 						OWLIndividual ind = (OWLIndividual) o;
 						HashMap<String, Double> h = new HashMap<String, Double>();
 
-						// System.out.println("Class : " + cls.getBrowserText()
-						// + ",     Instance : " + ind.getBrowserText());
+//						 System.out.println("Class : " + cls.getBrowserText()
+//						 + ",     Instance : " + ind.getBrowserText());
+						 
 						Collection instanceprop = ind.getRDFProperties();
 						Iterator it3 = instanceprop.iterator();
-						// System.out.println("inst-prop size : " +
-						// instanceprop.size());
+//						 System.out.println("inst-prop size : " +
+//						 instanceprop.size());
 
+						 
+						 
 						for (Object oal : instanceprop) {
 							String s = oal.toString();
 							// System.out.println(s);
@@ -628,7 +646,7 @@ public class exobrain {
 								propname = s.substring(wordIdx2 + 1,
 										s.length() - 1);
 							}
-							// System.out.println(propname);
+//							 System.out.println(propname);
 
 							try {
 								if (!propname.equals("wikiPageUsesTemplate")
@@ -638,8 +656,8 @@ public class exobrain {
 									Collection c = prop.getDirectDomain();
 									Iterator it = c.iterator();
 									try {
-										// System.out.println(c.size() +", " +
-										// prop);
+//										 System.out.println(c.size() +", " +
+//										 prop);
 										while (it.hasNext()) {
 											Object ooo = it.next();
 											String ss = ooo.toString();
@@ -695,27 +713,45 @@ public class exobrain {
 						
 						
 						List<Entry<String, Double>> relatedClassList = entriesSortedByValues(h);
-						for (Entry<String, Double> e : relatedClassList){
+						List<Entry<String, Double>> thingsToBeRemoved = new ArrayList<Entry<String, Double>>();
+//						System.out.println(relatedClassList);
+						Iterator<Entry<String, Double>> entryit = relatedClassList.iterator();
+						while(entryit.hasNext()){
+							Entry<String, Double> e = entryit.next();
 							if(e.getKey().equals("DefaultOWLNamedClass(http://www.w3.org/2002/07/owl#Thing)")){
-								relatedClassList.remove(e);
+								thingsToBeRemoved.add(e);
 							}
 							if(e.getValue()<0){
-								relatedClassList.remove(e);
+								thingsToBeRemoved.add(e);
 							}
 						}
+						relatedClassList.removeAll(thingsToBeRemoved);
+						
+// Similar way with followed code.										
+//						for (Entry<String, Double> e : relatedClassList){              
+//							if(e.getKey().equals("DefaultOWLNamedClass(http://www.w3.org/2002/07/owl#Thing)")){
+//								relatedClassList.remove(e);
+//							}
+//							if(e.getValue()<0){
+//								relatedClassList.remove(e);
+//							}
+//						}
+	
+						
+						
 //						System.out.println("Instance : " + ind.getBrowserText());
-//						for(int i=0; i<entriesSortedByValues(h).size(); i++){
-//							System.out.println(entriesSortedByValues(h).get(i));
+//						for(int i=0; i<relatedClassList.size(); i++){
+//							System.out.println(relatedClassList.get(i));
 //						}
 						
-						String bestType = entriesSortedByValues(h).get(0).getKey();
-						System.out.println(bestType);
+						String bestType = relatedClassList.get(0).getKey();
+//						System.out.println(bestType);
 						int Idx = bestType.lastIndexOf("#");
 						bestType = bestType.substring(Idx + 1, bestType.length() - 1);
 						OWLNamedClass clss = owlModel.getOWLNamedClass(bestType);
 						ind.addRDFType(clss);
 						ind.removeRDFType(cls);
-						System.out.println("Instance : " + ind.getBrowserText() + ind.getRDFTypes());
+//						System.out.println("Instance : " + ind.getBrowserText() + ind.getRDFTypes());
 						
 						
 						
@@ -815,11 +851,11 @@ public class exobrain {
 						//
 						// End
 					} catch (Exception e) {
-						// e.printStackTrace();
+						 e.printStackTrace();
 					}
 				}
 			} catch (Exception e) {
-				// e.printStackTrace();
+				 e.printStackTrace();
 			}
 		}
 		count1 = (double) cls.getDirectInstanceCount();
