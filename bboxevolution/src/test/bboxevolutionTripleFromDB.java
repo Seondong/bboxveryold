@@ -84,7 +84,7 @@ public class bboxevolutionTripleFromDB {
 		
 //		Triple id list를 예제로 생성   *나중에는 실제 트리플 ID를 넣어주셔야 합니다.
 		int i=0;
-		for(i=0; i<5; i++)
+		for(i=0; i<1000; i++)
 			T_id.add(i);
 		
 		String uri = "file:///C:/Users/user/git/bbox/bboxevolution/hahahaha.owl";
