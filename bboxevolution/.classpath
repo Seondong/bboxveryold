@@ -63,5 +63,6 @@
 	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/json_simple-1.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/RserveEngine.jar"/>
 	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/REngine.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/mysql-connector-java-5.0.8-bin.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

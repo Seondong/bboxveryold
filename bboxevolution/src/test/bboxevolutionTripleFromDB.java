@@ -69,9 +69,9 @@ public class bboxevolutionTripleFromDB {
 	static HashSet<String> set = new HashSet<String>();
 	
 	public static void main(String[] args) throws Exception {
-		String inputowlfilePath = args[0];
-		String instanceCSVfilePath = args[1];
-		String outputowlfilePath = args[2];
+		//String inputowlfilePath = args[0];
+		//String instanceCSVfilePath = args[1];
+		//String outputowlfilePath = args[2];
 
 		
 		// String[] koreanClass = koreanMapping();
@@ -82,18 +82,23 @@ public class bboxevolutionTripleFromDB {
 		
 		ArrayList<Integer> T_id = new ArrayList<Integer>();
 		
-//		Triple id list를 예제로 생성   *나중에는 실제 트리플 ID를 넣어주셔야 합니다.
+//		quintuples_bbox 테이블의 Triple id list를 예제로 생성  
+//		*나중에는 실제 테이블과 트리플 ID를 넣어주셔야 합니다.
 		int i=0;
-		for(i=0; i<1000; i++)
+		for(i=1; i<=4; i++)
 			T_id.add(i);
 		
-		String uri = "file:///C:/Users/user/git/bbox/bboxevolution/hahahaha.owl";
+		
+		// 현재 OWL 경로에 맞게 수정 필요
+		String uri = "file:///C:/Users/user/git/bbox/bboxevolution/DBpedia_AllIns.owl";
+		
 		JenaOWLModel owlModel = ProtegeOWL.createJenaOWLModelFromURI(uri);
 		addTripleFromDB(owlModel, 0, T_id);
 		executeLogic(owlModel);
 		
 		writeTripleToDB(owlModel);
-		saveEvolvedSchema(owlModel, outputowlfilePath);
+		// 원하는 OWL 경로에 맞게 수정 필요
+		saveEvolvedSchema(owlModel, "C:/Users/user/git/bbox/bboxevolution/evolvedoldenriched.owl");
 		
 //		새로운 증강 모듈 1	예제
 //		Att_Sim test = new Att_Sim();
@@ -102,6 +107,10 @@ public class bboxevolutionTripleFromDB {
 //		새로운 증강 모듈 2 예제
 //		Class_Sim test2 = new Class_Sim();
 //		test2.classCluster("ArchitecturalStructure", 2);
+		
+		
+		
+		
 		
 		
 		//saveEvolvedSchema2(owlModel, outputowlfilePath);
@@ -228,7 +237,7 @@ public class bboxevolutionTripleFromDB {
 		
 		try{
 			conn = DriverManager.getConnection(jdbcUrl, userId, userPass);
-			String sql = "insert into quintuples (s,p,o) values(?,?,?)";        
+			String sql = "insert into quintuples_bbox (s,p,o) values(?,?,?)";        
 			pstmt = conn.prepareStatement(sql);  
 			Iterator iter = set.iterator();
 			while(iter.hasNext())
@@ -414,7 +423,7 @@ public class bboxevolutionTripleFromDB {
 			int tid = 0;
 			for(tid = 0; tid < Tid.size(); tid++)	
 			{
-				String query = "select s, p, o from quintuples where t_id = " + Tid.get(tid);
+				String query = "select s, p, o from quintuples_bbox where t_id = " + Tid.get(tid);
 				rs = stmt.executeQuery(query);
 				
 				String s = null;
