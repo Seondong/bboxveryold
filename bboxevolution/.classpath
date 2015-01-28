@@ -2,52 +2,66 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/antlr-2.7.5.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/antlr-runtime-3.3.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/arq.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/arq-extra.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/axis.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/commons-discovery-0.4.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/commons-lang-2.0.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/commons-logging-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/concurrent.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/drools-compiler-5.4.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/drools-core-5.4.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/edtftpj-1.5.2.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/ekitspell.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/icu4j_3.4.4.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/iri.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/jcalendar.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/jdom.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/jena.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/jena-dig.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/jep-2.4.0.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/json.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/junit.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/kazuki.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/knowledge-api-5.4.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/knowledge-internal-api-5.4.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/log4j-1.2.12.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/mvel2-2.1.0.drools8.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/org.eclipse.jdt.core_3.7.0.v_B61.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/orphanNodesAlg.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/owl-portability.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/owl-portability-p3.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/owlsyntax.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/protege-owl.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/slf4j-api-1.5.8.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/slf4j-log4j12-1.5.8.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/stax-api-1.0.1.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/swingx-1.0.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/swrl-api.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/swrl-drools-bridge.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/swrl-jess-bridge.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/swrl-tab-p3.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/wstx-asl-3.2.9.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/xercesImpl.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/plugins/edu.stanford.smi.protegex.owl/xml-apis.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/protege.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/test/commons-collections4-4.0-alpha1-bin/commons-collections4-4.0-alpha1/commons-collections4-4.0-alpha1.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Protege_3.5/guava-18.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/antlr-2.7.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/antlr-runtime-3.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/arq.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/arq-extra.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/axis.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/commons-collections4-4.0-alpha1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/commons-collections4-4.0-alpha1-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/commons-collections4-4.0-alpha1-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/commons-collections4-4.0-alpha1-tests.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/commons-collections4-4.0-alpha1-test-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/commons-discovery-0.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/commons-io-2.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/commons-lang-2.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/concurrent.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/drools-compiler-5.4.0-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/drools-core-5.4.0-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/edtftpj-1.5.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/ekitspell.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/exobrain.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/icu4j_3.4.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/iri.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/jcalendar.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/jdom.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/jena.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/jena-dig.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/jep-2.4.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/json.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/jsoup-1.7.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/junit.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/kazuki.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/knowledge-api-5.4.0-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/knowledge-internal-api-5.4.0-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/lax.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/log4j-1.2.12.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/looks.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/mvel2-2.1.0.drools8.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/opencsv-1.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/org.eclipse.jdt.core_3.7.0.v_B61.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/orphanNodesAlg.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/owl-portability.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/owl-portability-p3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/owlsyntax.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/protege.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/protege-owl.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/slf4j-api-1.5.8.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/slf4j-log4j12-1.5.8.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/stax-api-1.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/swingx-1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/swrl-api.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/swrl-drools-bridge.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/swrl-jess-bridge.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/swrl-tab-p3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/unicode_panel.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/wstx-asl-3.2.9.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/xercesImpl.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/xml-apis.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/jar/guava-18.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/json_simple-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/RserveEngine.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/workspace/exobrain/REngine.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
