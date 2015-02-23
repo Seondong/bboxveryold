@@ -57,7 +57,7 @@ public class Class_Sim {
 		db = mongoClient.getDB("LinkagePoint_KoreanDbpediaEdgesinandout");
 		table = db.getCollection("KoreanDbpediaEdgesinandout");
 		
-		List<String> names = subClass(owlModel, classname); // ÀÎ¹°_Á¤º¸
+		List<String> names = subClass(owlModel, classname); // ï¿½Î¹ï¿½_ï¿½ï¿½ï¿½ï¿½
     	int numberofclass = names.size();
     	name = new String[numberofclass];
     	for(int i=0;i<numberofclass;i++)
@@ -66,7 +66,7 @@ public class Class_Sim {
     	
     	for(int i=0;i<numberofclass;i++)
     	{
-    		for(int j=0;j<numberofclass;j++)
+    		for(int j=i;j<numberofclass;j++)
     		{
     			if(i==j)
     			{
@@ -75,7 +75,10 @@ public class Class_Sim {
     			}
     			else
     			{
+    				System.out.println(names.get(i) + " and " + names.get(j) + "now calculating...");
     				distances[i][j] = calculateClass(names.get(i), names.get(j));
+    				distances[j][i] = distances[i][j];
+    				System.out.println("Finish");
     				//System.out.println(names.get(i) + "--" + names.get(j) + " = " + distances[i][j]);
     			}
     		}
@@ -112,7 +115,7 @@ public class Class_Sim {
 		OWLNamedClass super_class = owlModel.getOWLNamedClass(superclass);
 		ArrayList<OWLNamedClass> class_set = new ArrayList<OWLNamedClass>();
 		for(int i = 1; i <= numberofclass; i++)
-			class_set.add(owlModel.createOWLNamedSubclass("¼¼ºÎ"+superclass+i, super_class));
+			class_set.add(owlModel.createOWLNamedSubclass("ï¿½ï¿½ï¿½ï¿½"+superclass+i, super_class));
 		
 		File filedir = new File(filename);
 		BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(filedir),"UTF-8"));

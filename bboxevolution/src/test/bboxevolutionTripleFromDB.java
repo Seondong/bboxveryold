@@ -97,8 +97,13 @@ public class bboxevolutionTripleFromDB {
 		executeLogic(owlModel);
 		
 		writeTripleToDB(owlModel);
+		ArrayList<Integer> resultTID = getTID();
+		
+		for(int j = 0;j<resultTID.size();j++)
+			System.out.println(resultTID.get(j));
+		
 		// 원하는 OWL 경로에 맞게 수정 필요
-		saveEvolvedSchema(owlModel, "C:/Users/user/git/bbox/bboxevolution/evolvedoldenriched.owl");
+		//saveEvolvedSchema(owlModel, "C:/Users/user/git/bbox/bboxevolution/evolvedoldenriched.owl");
 		
 //		새로운 증강 모듈 1	예제
 //		Att_Sim test = new Att_Sim();
@@ -170,6 +175,55 @@ public class bboxevolutionTripleFromDB {
 		} catch (Exception e) {
 
 		}
+	}
+	
+	private static ArrayList<Integer> getTID()
+	{
+//		Psuedo K-Box에 접근
+		String jdbcUrl = "jdbc:mysql://211.109.9.71:3306/pseudo_kbox_db?useUnicode=true&characterEncoding=utf8";
+		String userId = "openkbuser";
+		String userPass = "openkbpass";
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+		}catch(ClassNotFoundException e){
+			
+		}
+		ArrayList<Integer> tid = new ArrayList<Integer>();
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		
+		try{
+			
+			conn = DriverManager.getConnection(jdbcUrl, userId, userPass);
+			stmt = conn.createStatement();
+			Iterator iter = set.iterator();
+			while(iter.hasNext())
+			{
+				String s = iter.next().toString();
+				System.out.println(s);
+				// http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+				String query = "select t_id from quintuples_bbox where (s = '" + s + "') AND (p = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type')";
+				rs = stmt.executeQuery(query);
+				
+				while(rs.next())
+				{
+					tid.add(rs.getInt(1));
+				}
+			}
+
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}finally{
+			try{
+				
+				rs.close();
+				stmt.close();
+				conn.close();
+			}catch(SQLException e){
+			}
+		}
+		return tid;
 	}
 	
 	private static ArrayList<String> getAllHierarchy(JenaOWLModel owlModel, String inst1)
