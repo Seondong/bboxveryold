@@ -55,7 +55,7 @@ public class Att_Sim {
 	// argument = class name
 	public static void instCluster(String classname, int numofcluster) throws Exception
 	{
-		//hypernym("¹°");
+		//hypernym("ï¿½ï¿½");
 		File path = new File(".");
 		String path2 = path.getCanonicalPath();
 		String path3 = path2.replaceAll("\\\\", "/");
@@ -101,7 +101,7 @@ public class Att_Sim {
 		OWLNamedClass super_class = owlModel.getOWLNamedClass(superclass);
 		ArrayList<OWLNamedClass> class_set = new ArrayList<OWLNamedClass>();
 		for(int i = 1; i <= numberofclass; i++)
-			class_set.add(owlModel.createOWLNamedSubclass("¼¼ºÎ"+superclass + i, super_class));
+			class_set.add(owlModel.createOWLNamedSubclass("ì„¸ë¶€"+superclass + i, super_class));
 		
 		File filedir = new File(filename);
 		BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(filedir),"UTF-8"));
@@ -130,14 +130,14 @@ public class Att_Sim {
 	{
 		try{
 			Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-		//	System.out.println("µå¶óÀÌ¹ö °Ë»ö ¼º°ø!");
+		
 		}catch(ClassNotFoundException e) {
 			System.err.println("error = " + e);
 		}
 
-		Connection conn = null;   // DB ¿¬°á
-		Statement stmt = null;   // Äõ¸® Ã³¸®¸¦ À§ÇØ »ý¼º
-		ResultSet rs = null;   // Äõ¸® °á°ú¸¦ ÀÓ½Ã ÀúÀå
+		Connection conn = null;   
+		Statement stmt = null;  
+		ResultSet rs = null;  
 
 		/*
 		 * 
@@ -169,7 +169,7 @@ public class Att_Sim {
 				
 
 		try {
-			// ¿¬°á, Äõ¸® °Ë»ö, °á°úÀúÀå
+			// ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			
 	//		System.out.println("dd");
 			conn = DriverManager.getConnection(url, id, pass);
@@ -178,7 +178,7 @@ public class Att_Sim {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(query);
 
-			// °á°ú Ãâ·Â
+			// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 			while(rs.next()) {
 				StdDicidx = rs.getInt(1);
 				StdDicsharp1 = rs.getString(2);
@@ -286,7 +286,7 @@ public class Att_Sim {
 				stmt = conn.createStatement();
 				rs = stmt.executeQuery(query);
 	
-				// °á°ú Ãâ·Â
+				// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 				while(rs.next()) {
 					StdDicidx = rs.getInt(1);
 					StdDicsharp1 = rs.getString(2);
@@ -308,7 +308,7 @@ public class Att_Sim {
 			
 			
 
-			// ¿¬°á ²÷±â
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			rs.close();     
 			stmt.close();
 			conn.close();
@@ -340,8 +340,6 @@ public class Att_Sim {
 		while(cursor.hasNext())
 		{
 			String temp = cursor.next().get("InstanceName").toString();
-//			if(temp.contains("¼³¸í¹®¼­"))
-//				continue;
 			names[first] = temp;
 			
 			
@@ -351,8 +349,6 @@ public class Att_Sim {
 			while(cursor2.hasNext())
 			{
 				String temp2 = cursor2.next().get("InstanceName").toString();
-//				if(temp2.contains("¼³¸í¹®¼­"))
-//					continue;
 
 				if(temp.equals(temp2))
 				{
@@ -699,11 +695,15 @@ public class Att_Sim {
 					   String real_value = temp_value.substring(index+24);
 					   //if(real_value.equals(ins1)) // self loop escape
 					   //   continue;	   
+					   real_value = real_value.replaceAll("Â ", " ");
 					   multi_value.add(real_value);
 					   
 				   }
 				   else // _income case
+				   {
+					   temp_value = temp_value.replaceAll("Â ", " ");
 					   multi_value.add(temp_value);
+				   }
 			  
 			   }
 			   else if(flag != 0)
@@ -772,10 +772,14 @@ public class Att_Sim {
 					   String real_value = temp_value.substring(index+24);
 					   //if(real_value.equals(ins1)) // self loop escape
 					   //   continue;  
+					   real_value = real_value.replaceAll("Â ", " ");
 					   multi_value.add(real_value);
 				   }
 				   else
+				   {
+					   temp_value = temp_value.replaceAll("Â ", " ");
 					   multi_value.add(temp_value);
+				   }
 			  
 			   }
 			   else if(flag != 0)
@@ -901,6 +905,7 @@ public class Att_Sim {
 				   dbpedia_att.remove(key);
 				   break;
 			   }
+			   temp_value = temp_value.replaceAll("Â ", " ");
 			   multi_value.add(temp_value);
 			   //System.out.println(value2);
 		   }
@@ -947,6 +952,7 @@ public class Att_Sim {
 				   dbpedia2_att.remove(key);
 				   break;
 			   }
+			   temp_value = temp_value.replaceAll("Â ", " ");
 			   multi_value.add(temp_value);
 			   //System.out.println(value2);
 		   }
@@ -1058,7 +1064,7 @@ public class Att_Sim {
 
 
 /*
-//hypernym("¹°");
+//hypernym("ï¿½ï¿½");
 File path = new File(".");
 String path2 = path.getCanonicalPath();
 String path3 = path2.replaceAll("\\\\", "/");
@@ -1102,9 +1108,9 @@ c.eval("write.table(tab1clustn,  file=\"" + path3 + "/tab1clustn.csv\", row.name
  //createSubclass(owlModel, "tab1clustn.csv", args[0], Integer.parseInt(args[1]));
  
 //owlModel = loadExistSchema();
-//System.out.println(get_RS("À¯¼ºÃµ","À¯µîÃµ",0));
-//System.out.println(get_AS("°µÁö½º_°­","°µÁö½º_°­"));
-//checkProp("³«µ¿°­");
+//System.out.println(get_RS("ï¿½ï¿½ï¿½ï¿½Ãµ","ï¿½ï¿½ï¿½ï¿½Ãµ",0));
+//System.out.println(get_AS("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½","ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½"));
+//checkProp("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 /*
 // Initiate cluster
 HierarchicalClusterer clusterer = new HierarchicalClusterer();
