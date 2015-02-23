@@ -115,7 +115,7 @@ public class Class_Sim {
 		OWLNamedClass super_class = owlModel.getOWLNamedClass(superclass);
 		ArrayList<OWLNamedClass> class_set = new ArrayList<OWLNamedClass>();
 		for(int i = 1; i <= numberofclass; i++)
-			class_set.add(owlModel.createOWLNamedSubclass("����"+superclass+i, super_class));
+			class_set.add(owlModel.createOWLNamedSubclass("세부"+superclass+i, super_class));
 		
 		File filedir = new File(filename);
 		BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(filedir),"UTF-8"));
