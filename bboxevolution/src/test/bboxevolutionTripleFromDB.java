@@ -477,6 +477,7 @@ public class bboxevolutionTripleFromDB {
 			int tid = 0;
 			for(tid = 0; tid < Tid.size(); tid++)	
 			{
+				String tidquery = "select max(tid) from quintuples_bbox";
 				String query = "select s, p, o from quintuples_bbox where t_id = " + Tid.get(tid);
 				rs = stmt.executeQuery(query);
 				
@@ -499,11 +500,15 @@ public class bboxevolutionTripleFromDB {
 					//String s = st.nextToken();
 					s = s.replaceAll(" ", "_");
 					s = s.replaceAll("http://ko.dbpedia.org/resource/", "");
+					s = s.replaceAll("http://kbox.kaist.ac.kr/resource/", "");
 					s = s.replaceAll(":", "_");
 					//String p = st.nextToken();
 					p = p.replaceAll(" ", "_");
 					p = p.replaceAll("http://ko.dbpedia.org/property/", "");
 					p = p.replaceAll("http://dbpedia.org/ontology/", "");
+					p = p.replaceAll("http://xmlns.com/foaf/0.1/","");
+					p = p.replaceAll("http://www.w3.org/2004/02/skos/core#","");
+					
 					//String o = st.nextToken();
 					o = o.replaceAll(" ", "_");
 					o = o.replaceAll("http://ko.dbpedia.org/resource/", "");      //Do not think of individual here as a object
