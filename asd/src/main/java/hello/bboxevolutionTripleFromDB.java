@@ -152,7 +152,7 @@ public class bboxevolutionTripleFromDB {
 
         try {
             // 현재 OWL 경로에 맞게 수정 필요
-          String uri = "file:///C:/Users/user/workspace/asd/DBpedia_AllIns.owl";
+          String uri = "file:///C:/Users/user/git/bboxlocal/asd/DBpedia_AllIns.owl";
     //        String uri = "file:///"+System.getProperty("user.home")+"/OPENKB/HOME/data/bbox/DBpedia_AllIns.owl";
             
             JenaOWLModel owlModel = ProtegeOWL.createJenaOWLModelFromURI(uri);
@@ -161,7 +161,7 @@ public class bboxevolutionTripleFromDB {
             
             writeTripleToDB(owlModel);
             // 원하는 OWL 경로에 맞게 수정 필요
-          saveEvolvedSchema(owlModel, "C:/Users/user/workspace/asd/evolvedoldenriched.owl");
+          saveEvolvedSchema(owlModel, "C:/Users/user/git/bboxlocal/asd/evolvedoldenriched.owl");
     //      saveEvolvedSchema(owlModel, "file:///"+System.getProperty("user.home")+"/evolvedoldenriched.owl");
     //        saveEvolvedSchema(owlModel, "evolvedoldenriched.owl");
             
